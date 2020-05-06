@@ -70,8 +70,7 @@ getFirstIpAddress(cidrStr, callback) {
     // Notice the destructering assignment syntax to get the value of the first array's element.
     [firstIpAddress] = cidr.toArray(options);
   }
-  if( firstIpAddress )
-    mappedAddress= getIpv4MappedIpv6Address(firstIpAddress);
+
   
   // Call the passed callback function.
   // Node.js convention is to pass error data as the first argument to a callback.
