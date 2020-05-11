@@ -75,7 +75,7 @@ getFirstIpAddress(cidrStr, callback) {
      
      //first time around forgot to call the export from ipv6.js
     let ipv6 = getIpv4MappedIpv6Address(ipv4);
-    [firstIpAddress] = {ipv4, ipv6};
+    firstIpAddress = { ipv4, ipv6 };
 
    }
   
