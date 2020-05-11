@@ -50,6 +50,8 @@ getFirstIpAddress(cidrStr, callback) {
   // Initialize return arguments for callback
   let firstIpAddress = null;
   let callbackError = null;
+  let ipv4 = null;
+  let ipv6 = null;
 
   // Instantiate an object from the imported class and assign the instance to variable cidr.
   const cidr = new IPCIDR(cidrStr);
@@ -69,7 +71,11 @@ getFirstIpAddress(cidrStr, callback) {
   } else {
     // If the passed CIDR is valid, call the object's toArray() method.
     // Notice the destructering assignment syntax to get the value of the first array's element.
-    [firstIpAddress] = cidr.toArray(options);
+     let ipv4 = cidr.toArray(options)[0];
+     
+     //first time around forgot to call the export from ipv6.js
+    let ipv6 = getIpv4MappedIpv6Address(ipv4);
+    [firstIpAddress] = {ipv4, ipv6};
 
    }
   
